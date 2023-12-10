@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Form</title>
+  <style>
+    @media print {
+      body {
+        width: 210mm;
+        height: 297mm;
+      }
+
+      .no-print {
+        display: none;
+      }
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+    }
+
+    .form-container {
+      width: 794px;
+      /* A4 width */
+      height: 1123px;
+      /* A4 height */
+      margin: 20px auto;
+      /* Added margin here */
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      /* Ensure table adheres to the specified width */
+    }
+
+    th,
+    td {
+      border: 1px solid #000;
+      padding: 5px;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      width: 30%;
+    }
+
+    td {
+      width: 70%;
+    }
+
+    textarea {
+      width: 100%;
+      /* Width is now 100% of the td */
+      height: 50px;
+      /* Adjust height as necessary */
+      border: none;
+      padding: 5px;
+      resize: none;
+      /* Disable resizing */
+      margin-bottom: 5px;
+      /* Spacing between textareas */
+      box-sizing: border-box;
+      /* Include padding and border in the element's total width and height */
+    }
+
+    .section {
+      background-color: #f2f2f2;
+      padding: 5px 10px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <h1 class="no-print">자기소개서 준비</h1>
+
+    <!-- Growth Process Section -->
+    <div class="section">성장과정</div>
+    <table>
+      <tr>
+        <th>본인의 가치관</th>
+        <td><textarea name="values">
+현재에 충실히 노력하여 최선의 성과를 이끌어내자
+        </textarea></td>
+      </tr>
+      <tr>
+        <th>가치관 계기/영향</th>
+        <td><textarea name="values_impact">
+저는 끊임없이 변화하는 개발 세계에서 안정적으로 성장하기 위해 현재 수행 중인 업무에 최선을 다하고 있습니다. 미래에 어떤 프로그램이나 플랫폼이 나올지는 예측할 수 없지만, 현재의 업무에 전념하며 필요한 경우 신기술이나 새로운 기회에 빠르게 적응하고 발전시키는 데 주안점을 두고 있습니다. 이는 단기적인 목표보다는 장기적인 성장과 지속적인 발전을 추구하는데 중점을 두는 저의 가치관을 반영하고 있습니다.
+        </textarea></td>
+      </tr>
+    </table>
+
+    <!-- Personality Strengths and Weaknesses Section -->
+    <div class="section">성격의 장단점</div>
+    <table>
+      <tr>
+        <th>장점</th>
+        <td><textarea name="strengths">
+반복 작업에 그치지 않고 작업 원리를 활용하여 효율적으로 수행하려는 노력을 기울이고 있습니다. 동일한 작업이라도 작업 원리를 이해하고 적용함으로써 빠른 진행 속도를 유지하고 있습니다.
+        </textarea></td>
+      </tr>
+      <tr>
+        <th>장점을 발휘한 경험</th>
+        <td>
+          <textarea name="strengths_experience" placeholder="당시상황">
+회사 재직 당시, 한 대학의 각 학과별로 홈페이지를 촉박한 마감기한에 맞춰 개발해야 했는데, 팀원 둘이 협력하여 각자 5개씩 작업을 나눠 맡았습니다.
+          </textarea>
+          <textarea name="strengths_action" placeholder="나의 행동">
+저의 작업 속도가 빨라 기존에 5개만 맡았던 작업에, 팀원의 작업까지 더해 8개를 완료하였습니다.
+          </textarea>
+          <textarea name="strengths_result" placeholder="결과">
+촉박했던 마감 기한을 지킬 수 있었습니다
+          </textarea>
+        </td>
+      </tr>
+      <tr>
+        <th>단점</th>
+        <td><textarea name="weaknesses">
+팀원과의 원활한 소통이 이루어지지 않을 때, 스트레스를 경험합니다.
+        </textarea></td>
+      </tr>
+      <tr>
+        <th>극복 방법/일화</th>
+        <td><textarea name="overcoming_weaknesses">
+개인적으로 명상을 통해 정서적 안정을 취하거나, 팀원들과의 대화를 통해 상호간의 이해를 높이며, 그들의 입장을 공감하고 이해하려고 합니다.
+        </textarea></td>
+      </tr>
+    </table>
+
+    <!-- Reason for Application Section -->
+    <div class="section">지원동기</div>
+    <table>
+      <tr>
+        <th>이 일을 지원하는 이유</th>
+        <td><textarea name="application_reason">
+지원 동기는 즐거움입니다. 프론트엔드 작업은 화면을 구성하므로, 저의 작업 결과가 즉각적으로 시각화되어 성취감을 느낄 수 있기 때문에 특히 만족스럽습니다.
+        </textarea></td>
+      </tr>
+      <tr>
+        <th>본인이 쌓은 전문성</th>
+        <td><textarea name="expertise">
+최근 3년간 웹 홈페이지 회사에서 꾸준히 근무하며, 그 중 1년 이상을 개발팀 팀장으로서 활동하였습니다. 퍼블리싱 분야에서는 높은 퀄리티와 빠른 작업 속도를 유지하여 업무를 수행할 수 있습니다.
+        </textarea></td>
+      </tr>
+    </table>
+
+    <!-- Aspirations after Joining Section -->
+    <div class="section">입사 후 포부</div>
+    <table>
+      <tr>
+        <th>입사후 본인의 목표</th>
+        <td><textarea name="post_joining_goals">
+저의 입사 후 목표는 먼저 프론트엔드 개발 분야에서 높은 역량을 쌓는 것입니다. 그리고 이후에는 백엔드 개발도 공부하여 풀스택 개발자로 성장하고자 합니다.
+        </textarea></td>
+      </tr>
+      <tr>
+        <th>역량 스토리</th>
+        <td>
+          <textarea name="capabilities_story" placeholder="역량을 펼친 스토리">
+지난 3년 동안 안정적으로 인정받으며 근무한 직장에서 자기개발을 위한 이직 결심을 하였습니다. 이를 통해 개발 공부에 전념하며, 프론트엔드 개발자로의 전향을 성취하였습니다.
+          </textarea>
+          <textarea name="developer_vision" placeholder="어떤 개발자가 될 것인가">
+새로운 기술에 열린 마음을 가지고 틀에 갇히지 않고 발전하는 기술들을 적극적으로 받아들이며, 끊임없는 자기개발을 소홀히 하지 않는 개발자가 되고자 합니다.
+          </textarea>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+</body>
+
+</html>
