@@ -4,6 +4,7 @@ import JSX02 from "./a_JSX/JSX02";
 import Props01 from "./b_Props/Props01";
 import Rendering01 from "./c_Rendering/Rendering01";
 import State01 from "./d_State/State01";
+import Rendering012 from "./test";
 
 export default function Index() {
   return (
