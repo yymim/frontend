@@ -1,4 +1,3 @@
-import { userInfo } from "os";
 import React from "react";
 
 export default function JSX02() {
@@ -33,14 +32,18 @@ export default function JSX02() {
   return (
     <>
       <hr />
-      <div>{welcomeAessage}</div>
-      <div>{greeting("황민현")}</div>
+      <div>중괄호를 사용한 문자열 전달 : {welcomeAessage}</div>
+      <div>중괄호를 사용한 함수 호출 : {greeting("황민현")}</div>
       <div>
+        중괄호를 사용한 객체 사용<br />
         이름: {userInfo.name},
         나이: {userInfo.age}
       </div>
       <hr />
       <div style={divStyle}>{text}</div>
+      <div style={{
+        border: '2px solid black'
+      }}>더블 컬리로 스타일 속성 사용하기</div>
     </>
   );
 }

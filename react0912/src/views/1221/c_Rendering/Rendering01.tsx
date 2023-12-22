@@ -30,7 +30,7 @@ function Item({ name, isPacked }: ItemType) {
   )
 }
 
-//! 논리 연산자  (&&, ||)를 사용한 조건부 렌더링
+//! 논리 연산자  (&&)를 사용한 조건부 렌더링
 export default function Rendering01() {
   const score = 1;
 

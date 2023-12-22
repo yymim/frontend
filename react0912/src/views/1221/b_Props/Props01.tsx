@@ -23,16 +23,16 @@ function Data(props: DataType) {
 type HelloType = {
   name: string;
   color: string;
-};
+}
 
-function Hello({ name, color }: HelloType) {
+function Hello({name, color}: HelloType) {
   return <div style={{ color: color }}>안녕하세요 {name}</div>;
 }
 
 //? defaultProps로 기본값 설정
 // : 컴포넌트에 props를 지정하지 않았을 때 기본적으로 사용할 값 설정
 Hello.defaultProps = {
-  name: "이름없음",
+  name: '이름없음'
 };
 
 //? Props.children
