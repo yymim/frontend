@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="card">
           <div class="card-inner">
             <div class="card-front">
-              <img src="./images/puppy-gb43ed7c88_1280.jpg" alt="카드의 앞면" />
+              <img src="./images/tiger.jpg" alt="카드의 앞면" />
             </div>
             <div class="card-back" style="background-color: ${cardColors[i]}"></div>
           </div>
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //! 매치되지 않은 카드를 다시 뒤집는 함수 정의
   function unflipCards() {
     // 게임판을 잠금
-    lockBoard = ture;
+    lockBoard = true;
 
     setTimeout(() => {
       firstCard.classList.remove("flipped");

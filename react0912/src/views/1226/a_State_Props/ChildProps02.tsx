@@ -1,27 +1,30 @@
 import React from "react";
 
-interface UserType {
-  name: string;
-  age: number;
+// Props에 대한 타입 정의
+interface ChildComponentProps {
+  userInfo: {
+    name: string;
+    height: number;
+  };
+  onUpdate: (newInfo: { name: string; height: number }) => void;
 }
 
-type ChildProps = {
-  userInfo: UserType | undefined;
-};
-
 //^ 자식 컴포넌트
-// const ChildProps01: React.FC<{ userInfo: UserType }> = ({ userInfo }) => {
-const ChildProps01 = ({ userInfo }: ChildProps) => {
+const ChildProps02: React.FC<ChildComponentProps> = ({
+  userInfo,
+  onUpdate,
+}) => {
+  const updateInfo = () => {
+    // 상태 업데이트 로직
+    onUpdate({ name: "lee do kyung", height: 158 });
+  };
   return (
     <div>
-      {userInfo && (
-        <>
-          <p>Name: {userInfo.name}</p>
-          <p>Age: {userInfo.age}</p>
-        </>
-      )}
+      <p>Name: {userInfo.name}</p>
+      <p>Height: {userInfo.height}</p>
+      <button onClick={updateInfo}>Update Info</button>
     </div>
   );
 };
 
-export default ChildProps01;
+export default ChildProps02;

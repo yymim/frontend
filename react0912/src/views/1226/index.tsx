@@ -10,7 +10,7 @@ export default function Index() {
     <>
       <h1>1226 리액트 수업 자료</h1>
       <h2 style={{ backgroundColor: "pink" }}>상태관리의 컴포넌트 트리 전달</h2>
-      <StateProps01 userInfo={undefined} />
+      <StateProps01 />
       <StateProps02 />
 
       <h2 style={{ backgroundColor: "pink" }}>useRef로 특정 DOM 선택</h2>

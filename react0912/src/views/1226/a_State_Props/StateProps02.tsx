@@ -25,7 +25,7 @@ export default function StateProps02() {
 
   return (
     <div>
-      {/* <ChildProps02 userInfo={userInfo} onUpdate={handleUpdate} /> */}
+      <ChildProps02 userInfo={userInfo} onUpdate={handleUpdate} />
     </div>
   );
 }
