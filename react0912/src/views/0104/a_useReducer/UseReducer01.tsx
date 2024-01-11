@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer, useState } from 'react'
 
 //! useReducer
 // : 컴포넌트 내의 상태 관리 기능
@@ -9,20 +9,20 @@ import React, { useReducer, useState } from "react";
 // (state, action) => newState
 
 type StateType = {
-  count: number;
-};
+  count: number
+}
 
 type ActionType = {
-  type: "increment" | "decrement";
-};
+  type: 'increment' | 'decrement';
+}
 
 // 상태를 관리하는 리듀서 함수
 function reducer(state: StateType, action: ActionType): StateType {
   switch (action.type) {
-    case "increment":
-      return { count: state.count + 1 };
-    case "decrement":
-      return { count: state.count - 1 };
+    case 'increment':
+      return { count: state.count + 1};
+    case 'decrement':
+      return { count: state.count - 1};
     default:
       // ActionType에 맞지 않는 경우 오류
       throw new Error();
@@ -47,14 +47,14 @@ export default function UseReducer01() {
   // 증가 액션 처리
   const increment = () => {
     // setCount(prevCount => prevCount + 1);
-    dispatch({ type: "increment" });
-  };
+    dispatch({ type: 'increment' })
+  }
 
   // 감소 액션
   const decrement = () => {
     // setCount(prevCount => prevCount - 1);
-    dispatch({ type: "decrement" });
-  };
+    dispatch({ type: 'decrement' })
+  }
 
   return (
     <div>
@@ -62,5 +62,5 @@ export default function UseReducer01() {
       <button onClick={decrement}>Decrease</button>
       <button onClick={increment}>Increase</button>
     </div>
-  );
+  )
 }

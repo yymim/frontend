@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
 //! 리액트와 일반 TS의 차이
 // 간단한 카운터 예제
@@ -11,11 +11,11 @@ export default function React02() {
 
   const increment = () => {
     setCount(count + 1);
-  };
+  }
 
   const decrement = () => {
     setCount(count - 1);
-  };
+  }
 
   return (
     <div>
@@ -23,5 +23,5 @@ export default function React02() {
       <button onClick={increment}>Increment</button>
       <button onClick={decrement}>Decrement</button>
     </div>
-  );
+  )
 }

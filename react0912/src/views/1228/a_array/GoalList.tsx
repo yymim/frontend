@@ -14,18 +14,18 @@ interface GoalProps {
   onToggle: (id: number) => void;
 }
 
-export default function GoalList({ goals, onRemove, onToggle }: GoalProps) {
+export default function GoalList({ goals, onRemove, onToggle }: GoalProps ) {
   return (
     <>
       {/* title - explanation */}
-      {goals.map(goal => ( // -> initialGoals.map vs goals.map
+      {goals.map((goal) => (
         <div>
           <span 
-            key={goal.id}
+            key={goal.id} 
             style={{
               cursor: 'pointer',
-              // active가 true면 글자색을 green으로
-              // false면 글자색을 black으로
+              // active가 true면 글자색 green
+              // false면 글자색 black
               color: goal.active ? 'green' : 'black'
             }}
             onClick={() => onToggle(goal.id)}
@@ -36,7 +36,5 @@ export default function GoalList({ goals, onRemove, onToggle }: GoalProps) {
         </div>
       ))}
     </>
-  )
+  );
 }
-
-// 맵, 필터, 삼항연산자 꼭 복습
