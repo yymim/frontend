@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 //! 배열 렌더링 (추가, 제거, 수정)
 // CRUD 기능
@@ -21,14 +21,14 @@ type Items = {
     name: string;
     amount: number;
   };
-};
+}
 
 // 기존 장바구니 항목
 const initialItems = [
-  { id: 1, name: "사과", amount: 2 },
-  { id: 2, name: "치즈", amount: 1 },
-  { id: 3, name: "과자", amount: 3 },
-  // 추가 목록 작성
+  { id: 1, name: '사과', amount: 2},
+  { id: 2, name: '치즈', amount: 1},
+  { id: 3, name: '과자', amount: 3},
+  // 추가 목록 작성 
 ];
 
 function Item({ items }: Items) {
@@ -43,6 +43,7 @@ function Item({ items }: Items) {
 }
 
 export default function ArrRendering01() {
+
   return (
     <>
       {/* 
@@ -50,8 +51,8 @@ export default function ArrRendering01() {
       <Item items={initialItems[1]}/>
       <Item items={initialItems[2]}/> 
       */}
-      {initialItems.map((item) => (
-        <Item items={item} />
+      {initialItems.map(item => (
+        <Item items={item}/>
       ))}
       {/* 
       {initialItems.map((item, index) => (
@@ -59,5 +60,5 @@ export default function ArrRendering01() {
       ))} 
       */}
     </>
-  );
+  )
 }

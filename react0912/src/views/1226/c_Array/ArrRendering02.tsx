@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef } from 'react'
 
 //! useRef
 // : DOM선택
@@ -17,20 +17,18 @@ interface ItemProps {
   item: Item;
 }
 const items: Item[] = [
-  { id: 1, name: "사과", amount: 2 },
-  { id: 2, name: "치킨너겟", amount: 1 },
-  { id: 3, name: "오렌지주스", amount: 3 },
+  { id: 1, name: '사과', amount: 2},
+  { id: 2, name: '치킨너겟', amount: 1}, 
+  { id: 3, name: '오렌지주스', amount: 3}, 
 ];
 
 function Item({ item }: ItemProps) {
   return (
     <div>
-      <p>
-        <b>{item.name}</b>
-      </p>
+      <p><b>{item.name}</b></p>
       <p>{item.amount}</p>
     </div>
-  );
+  )
 }
 
 // 장바구니 배열에 대한 타입 정의
@@ -41,14 +39,15 @@ interface ItemList {
 function ItemList({ items }: ItemList) {
   return (
     <div>
-      {items.map((item) => (
-        <Item item={item} key={item.id} />
+      {items.map(item => (
+        <Item item={item} key={item.id}/>
       ))}
     </div>
-  );
+  )
 }
 
 export default function ArrRendering02() {
+
   // 다음 아이템의 ID를 위한 useRef 사용
   // : 컴포넌트가 리렌더링 되어도 이 값은 유지
   const nextId = useRef<number>(4);
@@ -61,7 +60,7 @@ export default function ArrRendering02() {
     // ID를 증가
     // useRef에서 현재값 사용 시 .current 사용
     nextId.current += 1;
-  };
+  }
 
-  return <ItemList items={items} />;
+  return <ItemList items={items} />
 }

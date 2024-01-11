@@ -1,16 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useInput } from "../hooks/useInput";
-import {
-  Button,
-  Container,
-  IconButton,
-  List,
-  ListItem,
-  ListItemText,
-  TextField,
-} from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Delete";
+import React, { useState } from 'react'
+import { useInput } from '../hooks/useInput';
+import { Button, Container, IconButton, List, ListItem, ListItemText, TextField } from '@mui/material'
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Delete';
 
 interface Todo {
   text: string;
@@ -22,15 +14,13 @@ interface Todo {
 // 레이아웃 및 그리드 시스템
 export default function Framework() {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const newTodo = useInput("");
+  const newTodo = useInput('');
 
   // Todo 추가
   const addTodo = () => {
     if (newTodo.value) {
       setTodos([...todos, { text: newTodo.value, id: Date.now() }]);
-      newTodo.onChange({
-        target: { value: "" },
-      } as React.ChangeEvent<HTMLInputElement>);
+      newTodo.onChange({ target: { value: '' } } as React.ChangeEvent<HTMLInputElement>);
     }
   };
 
@@ -38,18 +28,6 @@ export default function Framework() {
   const deleteTodo = (id: number) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
-
-  // Todo 목록 로컬 스토리지에 저장
-  useEffect(() => {
-    const storedData = localStorage.getItem("todos");
-    const storedTodos = storedData ? JSON.parse(storedData) : [];
-    setTodos(storedTodos);
-  }, []);
-
-  // Todo 목록 변경시 로컬 스토리지 업데이트
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
 
   return (
     <Container maxWidth="sm">

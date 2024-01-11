@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 interface UserType {
   name: string;
@@ -7,7 +7,7 @@ interface UserType {
 
 type ChildProps = {
   userInfo: UserType | undefined;
-};
+}
 
 //^ 자식 컴포넌트
 // const ChildProps01: React.FC<{ userInfo: UserType }> = ({ userInfo }) => {
@@ -21,7 +21,7 @@ const ChildProps01 = ({ userInfo }: ChildProps) => {
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
 export default ChildProps01;

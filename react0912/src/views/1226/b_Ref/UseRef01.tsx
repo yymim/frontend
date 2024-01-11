@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState } from 'react'
 
 //! useRef
 // : reference(참조)의 축약어
@@ -9,7 +9,7 @@ import React, { useRef, useState } from "react";
 //? 텍스트 길이 카운팅
 
 export default function UseRef01() {
-  const [text, setText] = useState<string>("");
+  const [text, setText] = useState<string>('');
   const [time, setTime] = useState<number>(0);
 
   //! 텍스트 길이 측정 함수
@@ -20,7 +20,7 @@ export default function UseRef01() {
     setText(e.target.value);
     // 입력된 텍스트의 길이를 lengthRef에 저장
     lengthRef.current = e.target.value.length;
-  };
+  }
 
   //! 타이머 구현 함수
   // 타이머의 간격(인터벌) ID를 저장
@@ -32,7 +32,7 @@ export default function UseRef01() {
 
     intervalRef.current = window.setInterval(() => {
       // 매 초마다 time 상태를 1씩 증가
-      setTime((prevTime) => prevTime + 1);
+      setTime(prevTime => prevTime + 1);
     }, 1000);
   };
 
@@ -43,7 +43,7 @@ export default function UseRef01() {
       // 인터벌 참조 초기화
       intervalRef.current = null;
     }
-  };
+  }
 
   const resetTimer = () => {
     // 초기화 버튼이 눌러지면
@@ -58,12 +58,16 @@ export default function UseRef01() {
     stopTimer();
     // 시간을 0으로 초기화
     setTime(0);
-  };
+  }
 
   return (
     <>
       <h4>현재 텍스트 길이 측정 예제</h4>
-      <input type="text" value={text} onChange={handleChange} />
+      <input 
+        type="text" 
+        value={text} 
+        onChange={handleChange}
+      />
       {/* lengthRef를 사용하여 현재 텍스트 길이를 표시 */}
       <p>Text Lenght: {lengthRef.current}</p>
 
@@ -74,5 +78,5 @@ export default function UseRef01() {
       <button onClick={stopTimer}>종료</button>
       <button onClick={resetTimer}>초기화</button>
     </>
-  );
+  )
 }

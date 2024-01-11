@@ -18,6 +18,7 @@ export default function UseEffect02() {
     }
   }, []);
 
+
   return (
     <div>
       타이머: {count}
