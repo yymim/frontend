@@ -33,7 +33,7 @@ console.log(fruits[3]); // cherry
 // 배열명.length
 console.log(fruits.length); // 3
 
-//! for 반복문
+//! 1. for 반복문
 // : 코드를 정해진 횟수만큼 반복 실행할 때 사용
 
 // for 반복문의 기본적인 구조

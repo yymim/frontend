@@ -1,0 +1,1 @@
+true ? alert('출력A') : alert('출력B');
