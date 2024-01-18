@@ -1,54 +1,54 @@
 //! 반복문 연습 예제
 
+let fruits = ['apple', 'banana', 'cherry'];
+
 //? 1. 배열의 모든 요소를 출력
 
-// let fruits = ['apple', 'banana', 'cherry'];
+// for문
+console.log('---for문---');
+for (let index = 0; index < fruits.length; index++) {
+  // 배열 요소 가져오기
+  // : 배열명[요소 인덱스 번호]
+  console.log(fruits[index]);
+}
 
-// // for문
-// console.log('---for문---');
-// for (let index = 0; index < fruits.length; index++) {
-//   // 배열 요소 가져오기
-//   // : 배열명[요소 인덱스 번호]
-//   console.log(fruits[index]);
-// }
+// while문
+console.log('---while문---');
 
-// // while문
-// console.log('---while문---');
+let index = 0;
 
-// let index = 0;
-// while (index < fruits.length) {
-//   console.log(fruits[index]);
-//   index++;
-// }
+while (index < fruits.length) {
+  console.log(fruits[index]);
+  index++;
+}
 
-// // do-while문
-// console.log('---do-while문---');
+// do-while문
+console.log('---do-while문---');
 
-// let index2 = 0;
+index = 0;
 
-// do {
-//   console.log(fruits[index2]);
-//   index2++;
-// } while (index2 < fruits.length);
+do {
+  console.log(fruits[index]);
+  index++;
+} while (index < fruits.length);
 
-// //! 반복문 사용하기 실습
-// // 사용자로부터 입력 받기(do while문)
+//! 반복문 사용하기 실습
+// 사용자로부터 입력 받기(do while문)
 
-// // userInput 변수에 prompt('Enter a number greater than 10')
-// // userInput 변수가 10을 초과하는 수가 아닌 경우 반복
+// userInput 변수에 propmt('Enter a number greater than 10')
+// userInput 변수가 10을 초과하는 수가 아닌 경우 반복
 
-// let userInput;
+let userInput;
+do {
+  userInput = prompt('Enter a number greater than 10');
+} while (userInput <= 10);
 
-// do {
-//   userInput = prompt('Enter a number greater than 10');
-// } while (userInput <= 10);
+//! prompt창
+// prompt 함수는 항상 문자열을 반환
 
-// //! prompt창으로 입력받는 값: 문자열(string)
-// // prompt 함수는 항상 문자열을 반환
-
-// let input = prompt('Enter a number');
-// let numberInput = Number(input); // 명시적으로 숫자로 변환
-// let sum = numberInput + 10;
+let input = prompt('Enter a number');
+let numberInput = Number(input); // 명시적으로 숫자로 변환
+let sum = numberInput + 10;
 
 //! 반복문 실습
 const para = document.querySelector('p');
@@ -58,8 +58,8 @@ const btn = document.querySelector('button');
 // 버튼에 클릭 이벤트 리스너 추가
 btn.addEventListener('click', function() {
   // 클릭 시 출력 단락의 텍스트를 초기화
-  para.textContent = "Output";
-  // 입력 필드에서 값을 가져와 num변수에 저장
+  para.textContent = "Output: ";
+  // 입력 필드에서 값을 가져와 num 변수에 저장
   let num = inputNumber.value;
   // 입력 필드 초기화(비움)
   inputNumber.value = '';
@@ -69,15 +69,17 @@ btn.addEventListener('click', function() {
   // 1부터 사용자가 입력한 숫자(num)까지 반복
   for (let index = 1; index <= num; index++) {
     // 현재 숫자의 제곱근을 계산
-    let sqRoot = Math.sqrt(index);
-    // 현재 숫자의 제곱근을 계산
+    let sqRoot = Math.sqrt(index); 
+    // 현재 숫자의 제곱근을 계산 - 16 
     // 해당 제곱근이 정수가 아닌 경우 반복을 계속
+    // index 8의 제곱근 2.828
+    // index 9의 제곱근 3
     // >> index가 완전제곱수가 아닐 경우 건너뛰기
     if (Math.floor(sqRoot) !== sqRoot) {
       continue;
     }
 
-    // index가 완전 제곱수인 경우 현재 숫자를 단락의 텍스트에 추가
+    // index가 완전제곱수인 경우 현재 숫자를 단락의 텍스트에 추가
     para.textContent += index + " ";
   }
 })
