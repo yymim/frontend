@@ -1,12 +1,17 @@
-numbers = [5, 4, 3, 6, 1];
+document.addEventListener('DOMContentLoaded', 
+function() {
+  let parentDiv = document.getElementById('parentDiv');
+  let childButton = document.getElementById('childButton');
 
-let firstOverFive = numbers.find(num => num > 5);
-let firstIndexOverFive = numbers.findIndex(num => num > 5);
-console.log(firstOverFive);
-console.log(firstIndexOverFive);
+  parentDiv.addEventListener('click', function()
+  {
+    console.log('parent Div Capturing');
+  });
 
-let numberString = numbers.toString();
-let numberLocaleString = numbers.toLocaleString();
-console.log(typeof numberString);
-console.log(numberString);
-console.log(numberLocaleString);
+  childButton.addEventListener('click', function(e)
+  {
+    console.log('Child Button Capturing');
+    e.stopPropagation();
+  });
+
+})
