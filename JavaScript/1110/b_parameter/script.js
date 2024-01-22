@@ -7,12 +7,12 @@
 //? 2. 나머지 매개변수(Rest Parameters)
 // : JS에서는 나머지 매개변수를 사용하여 가변 매개변수를 구현
 // : 매개변수에 ...을 사용하여 정의
-// : , 함수에 전달된 여분의 인자들을 배열로 받음.
+// : , 함수에 전달된 여분의 인자들을 '배열'로 받음.
 
 //^ 나머지 매개변수의 형태
 // : 함수 선언 시 매개변수 목록의 마지막에 위치
 function exampleFunction(...args) {
-  // args : 배열
+  // args: 배열
   console.log(args); // 빈 배열이 출력
 }
 
@@ -20,7 +20,7 @@ exampleFunction();
 
 //^ 나머지 매개변수를 사용한 배열 생성
 function createArray(...elements) {
-  return elements; // 배열 반환이 생성
+  return elements; // 배열 반환 >> 생성
 }
 
 // 매개변수로 전달된 값들이 배열의 형태로 반환
@@ -29,7 +29,8 @@ console.log(createArray(1, 2, 3, 4, 5));
 // Math.min() 함수
 // : 복수의 인자를 받아 그 중 최소값을 반환
 function findMin(...numbers) {
-  // numbers 배열을 Math.min에 전달하여 최소값을 반환
+  // numbers 배열을 Math.min에 전달하여
+  // 최소값을 반환
   return Math.min(...numbers);
 }
 console.log(findMin(58, 35, 92, 10, 23, 77)); // 10
@@ -44,9 +45,11 @@ function combinedExample(firstParam, ...restOfParams) {
   // 배열의 형태 확인의 경우
   // JS 내장 함수인 Array.isArray()로 확인 가능
   console.log(`나머지 매개변수의 형태는 배열입니까?: ${Array.isArray(restOfParams)}`);
-} 
 
-combinedExample('Hello', 42, true, [1, 2, 3], null, undefined);
+  console.log(restOfParams);
+}
+
+combinedExample(42, 'Hello', true, [1, 2, 3], null, undefined);
 
 //? 3. 기본 매개변수
 // : 함수에 인자를 전달하지 않았을 때 사용되는 기본값을 정의
@@ -55,11 +58,9 @@ combinedExample('Hello', 42, true, [1, 2, 3], null, undefined);
 //^ 기본 매개변수 사용법
 // : 함수를 정의할 때 매개변수 뒤에 '='연산자를 이용하여 기본값을 할당
 
-function defaultParams(param1 = defaultValue1,
-  param2 = defaultValue2) {
+function defaultParams(param1 = defaultValue1, param2 = defaultValue2) {
 
 }
-
 
 // 윤년 확인 함수
 // 기본 매개변수를 사용하여 인수가 없을 경우
@@ -72,14 +73,10 @@ function isLeapYear(year = new Date().getFullYear()) {
 console.log(isLeapYear()); // 올해가 윤년인지 확인
 console.log(isLeapYear(2020)); // 2020년이 윤년인지 확인
 
-
-
 // 급여 계산 함수
-function calculatePay(rate, hours) {
+function calculatePay(rate, hours = 40) {
   return rate * hours;
 }
 
 console.log(calculatePay(10000)); // 시급 1만원에 기본값 사용(40)
-console.log(calculatePay(15000, 50)); // 시급 15000원에 50시간 근무
-
-// 02"00
+console.log(calculatePay(15000, 50)); // 시급 1만5천원에 50시간 근무
