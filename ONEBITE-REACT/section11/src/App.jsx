@@ -1,5 +1,12 @@
 import './App.css';
-import { useState, useRef, useReducer, useCallback, createContext } from 'react';
+import {
+  useRef,
+  useState,
+  useReducer,
+  useCallback,
+  createContext,
+  useMemo,
+} from "react";
 import Header from './components/Header';
 import Editor from './components/Editor';
 import List from './components/List';
@@ -26,8 +33,6 @@ const mockData = [
   },
 ]
 
-export const TodoContext = createContext();
-
 function reducer(state, action){
   switch (action.type) {
     case 'CREATE' : return [action.data, ...state];
@@ -47,6 +52,9 @@ function reducer(state, action){
     default : return state;
   }
 }
+
+export const TodoStateContext = createContext();
+export const TodoDispatchContext = createContext();
 
 function App() {
   const [todos, dispatch] = useReducer(reducer, mockData);
@@ -81,28 +89,26 @@ function App() {
   //const func = useCallback(() => {}, [])
   // deps를 빈 배열로 생성해주면 첫 마운트 할 때에만 리렌더링
 
+  const memoizedDispatch = useMemo(() => {
+    return { onCreate, onUpdate, onDelete };
+  }, []);
  
 
   return (
     <div className='App'>
-      {/* <Exam /> */}
-
       <Header />
-      <TodoContext.Provider 
-        value = {{
-          todos,
-          onCreate,
-          onUpdate,
-          onDelete
-        }}
-      >
-        <Editor />
-        <List
-          todos={todos}
-          onUpdate={onUpdate}
-          onDelete={onDelete}
-        />
-      </TodoContext.Provider>
+      <TodoStateContext.Provider value = {todos}>
+        <TodoDispatchContext.Provider 
+          value = {{memoizedDispatch}}
+        >
+          <Editor />
+          <List
+            todos={todos}
+            onUpdate={onUpdate}
+            onDelete={onDelete}
+          />
+        </TodoDispatchContext.Provider>
+      </TodoStateContext.Provider>
     </div>
   )
 }
