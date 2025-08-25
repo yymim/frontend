@@ -3,7 +3,10 @@ import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Diary from './pages/Diary';
 import New from './pages/New';
-import Notfound from './pages/Notfound'
+import Notfound from './pages/Notfound';
+import Button from './components/Button';
+
+import { getEmotionImage } from './util/get-emotion-image';
 
 
 // 1. '/' : 모든 일기를 조회하는 Home 페이지
@@ -19,16 +22,13 @@ function App() {
 
   return (
     <>
-    <div>
-      <Link to={'/'}>Home</Link>
-      <Link to={'/new'}>New</Link>
-      <Link to={'/diary'}>Diary</Link>
-    </div>
-    <button onClick={onClickButton}>New 페이지로 이동</button>
+    <Button />
+    
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/new' element={<New />} />
-      <Route path='/diary' element={<Diary />} />
+      <Route path='/diary/:id' element={<Diary />} />
+      {/* "/:id" => URL 파라미터를 사용해줄 것을 명시 */}
       <Route path='*' element={<Notfound />} />
     </Routes>
     </>
