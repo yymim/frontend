@@ -1,9 +1,10 @@
 @font-face {
   font-family: "NanumPenScript";
-  src: url('/NanumPenScript-Regular.ttf')
+  src: url("/NanumPenScript-Regular.ttf");
 }
 
-html, body {
+html,
+body {
   margin: 0px;
   width: 100%;
   background-color: rgb(246, 246, 246);
@@ -11,9 +12,9 @@ html, body {
 }
 
 #root {
+  background-color: white;
   max-width: 600px;
   width: 100%;
-  background-color: white;
   margin: 0 auto;
   min-height: 100vh;
   height: 100%;
@@ -23,5 +24,4 @@ html, body {
 
 body * {
   font-family: "NanumPenScript";
-  box-sizing: border-box;
 }

@@ -1,49 +1,46 @@
-import { useState, useContext } from 'react';
-import { DiaryStateContext } from '../App';
+import Header from "../components/Header";
+import Button from "../components/Button";
+import DiaryList from "../components/DiaryList";
+import { useState, useContext } from "react";
+import { DiaryStateContext } from "../App";
 
-import Header from '../components/Header';
-import Button from '../components/Button';
-import DiaryList from '../components/DiaryList';
-
-
-const getMonthlyDate = (pivotDate, data) => {
-
+const getMonthlyData = (pivotDate, data) => {
   const beginTime = new Date(
     pivotDate.getFullYear(),
     pivotDate.getMonth(),
-    1, // 일
-    0, // 시
-    0, // 분
-    0  // 초
+    1,
+    0,
+    0,
+    0
   ).getTime();
 
   const endTime = new Date(
     pivotDate.getFullYear(),
     pivotDate.getMonth() + 1,
-    0, // 이전달의 마지막 날에 해당하는 숫자로 변환
+    0,
     23,
     59,
     59
   ).getTime();
 
-
   return data.filter(
-    (item) => beginTime <= item.createdDate && item.createdDate <= endTime
+    (item) =>
+      beginTime <= item.createdDate && item.createdDate <= endTime
   );
-}
-
+};
 
 const Home = () => {
   const data = useContext(DiaryStateContext);
-  const [ pivotDate, setPivotDate ] = useState(new Date());
+  const [pivotDate, setPivotDate] = useState(new Date());
 
-  const monthlyData = getMonthlyDate(pivotDate, data);
-  
+  const monthlyData = getMonthlyData(pivotDate, data);
+
   const onIncreaseMonth = () => {
     setPivotDate(
       new Date(pivotDate.getFullYear(), pivotDate.getMonth() + 1)
     );
   };
+
   const onDecreaseMonth = () => {
     setPivotDate(
       new Date(pivotDate.getFullYear(), pivotDate.getMonth() - 1)
@@ -53,13 +50,15 @@ const Home = () => {
   return (
     <div>
       <Header
-        title={`${pivotDate.getFullYear()}년 ${pivotDate.getMonth() + 1}월`} // getMonth -> +1 필요
-        leftChild={<Button onClick={onDecreaseMonth} text={'<'} />}
-        rightChild={<Button onClick={onIncreaseMonth} text={'>'} />}
+        title={`${pivotDate.getFullYear()}년 ${
+          pivotDate.getMonth() + 1
+        }월`}
+        leftChild={<Button onClick={onDecreaseMonth} text={"<"} />}
+        rightChild={<Button onClick={onIncreaseMonth} text={">"} />}
       />
       <DiaryList data={monthlyData} />
     </div>
   );
-}
+};
 
 export default Home;
