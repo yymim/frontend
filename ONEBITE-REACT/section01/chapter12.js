@@ -10,7 +10,7 @@ let varB = function () {
   //   console.log("funcB");
 };
 
-varB();
+varB(); // -> 호이스팅 안됨
 
 // 2. 화살표 함수
 let varC = (value) => {

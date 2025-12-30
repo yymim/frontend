@@ -8,6 +8,8 @@ let a = 1; // 전역 스코프
 function funcA() {
   let b = 2; // 지역 스코프
   console.log(a);
+
+  function funcB() {}
 }
 
 funcA();
@@ -20,4 +22,4 @@ for (let i = 0; i < 10; i++) {
   let d = 1;
 }
 
-funcB();
+funcB(); // -> Uncaught ReferenceError: funcB is not defined
